@@ -5,8 +5,7 @@
 //  Created by Akashaka on 11/02/22.
 //
 
-import Foundation
-struct SearchItemResult: Codable {
+public struct SearchItemResult: Codable {
     let slug, name: String
     let platforms: [Platform]
     let released: String?
@@ -20,7 +19,7 @@ struct SearchItemResult: Codable {
     let reviewsCount: Int
     let genres: [GenreItem]
 
-    enum CodingKeys: String, CodingKey {
+  public  enum CodingKeys: String, CodingKey {
         case slug, name, platforms, released
         case backgroundImage = "background_image"
         case rating
@@ -34,17 +33,17 @@ struct SearchItemResult: Codable {
     }
 }
 // MARK: - Genre
-struct GenreItem: Codable {
+public struct GenreItem: Codable {
     let id: Int
     let name, slug: String
 }
 
 // MARK: - Platform
-struct Platform: Codable {
+public struct Platform: Codable {
     let platform: GenreItem
 }
-extension SearchItemResult {
-  func toEntity() -> SearchItemResultEntity {
+public extension SearchItemResult {
+  public   func toEntity() -> SearchItemResultEntity {
     return SearchItemResultEntity(
       id: self.id,
       name: self.name ,
@@ -53,14 +52,14 @@ extension SearchItemResult {
       genres: self.extractGenreName()
     )
   }
-    func extractPlatformsName() -> [String] {
+  public    func extractPlatformsName() -> [String] {
         var results: [String]=[]
         for platform in self.platforms {
             results.append(platform.platform.slug)
         }
         return results
     }
-    func extractGenreName() -> [String] {
+  public   func extractGenreName() -> [String] {
         var results: [String]=[]
         for genre in self.genres {
             results.append(genre.name)

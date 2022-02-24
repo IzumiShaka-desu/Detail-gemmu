@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct GameDetailResponse: Codable {
+public struct GameDetailResponse: Codable {
   let id: Int
   let slug, name, nameOriginal, gameDetailResponseDescription: String
   let metacritic: Int
@@ -40,7 +40,7 @@ struct GameDetailResponse: Codable {
   let esrbRating: EsrbRating
   let descriptionRaw: String
   
-  enum CodingKeys: String, CodingKey {
+  public enum CodingKeys: String, CodingKey {
     case id, slug, name
     case nameOriginal = "name_original"
     case gameDetailResponseDescription = "description"
@@ -81,8 +81,8 @@ struct GameDetailResponse: Codable {
     case descriptionRaw = "description_raw"
   }
 }
-extension GameDetailResponse {
-  func toEntity() -> GameDetailEntity {
+public extension GameDetailResponse {
+  public   func toEntity() -> GameDetailEntity {
     return GameDetailEntity(
       id: self.id,
       name: self.name,
@@ -95,14 +95,14 @@ extension GameDetailResponse {
       imageUrl: self.backgroundImage
     )
   }
-  func extractPlatformsName() -> [String] {
+  public  func extractPlatformsName() -> [String] {
     var results: [String]=[]
     for platform in self.platforms {
       results.append(platform.platform.name)
     }
     return results
   }
-  func extractGenreName() -> [String] {
+  public  func extractGenreName() -> [String] {
     var results: [String]=[]
     for genre in self.genres {
       results.append(genre.name)

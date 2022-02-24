@@ -4,7 +4,7 @@
 //
 //  Created by Akashaka on 09/02/22.
 //
-enum Title: String, Codable {
+public enum Title: String, Codable {
     case exceptional
     case meh
     case recommended

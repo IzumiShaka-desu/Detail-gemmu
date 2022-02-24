@@ -5,7 +5,7 @@
 //  Created by Akashaka on 09/02/22.
 //
 
-struct Store: Codable {
+public struct Store: Codable {
     let id: Int
     let store: Genre
 }
