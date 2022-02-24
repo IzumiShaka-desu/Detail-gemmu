@@ -5,7 +5,7 @@
 //  Created by Akashaka on 15/02/22.
 //
 
-struct GameDetailEntity: Equatable, Identifiable {
+public struct GameDetailEntity: Equatable, Identifiable {
   let id: Int
   let name: String
   let publisher: String
