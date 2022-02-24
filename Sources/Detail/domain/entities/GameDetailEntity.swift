@@ -6,7 +6,7 @@
 //
 
 public struct GameDetailEntity: Equatable, Identifiable {
-  let id: Int
+  public let id: Int
   let name: String
   let publisher: String
   let rating: Double
