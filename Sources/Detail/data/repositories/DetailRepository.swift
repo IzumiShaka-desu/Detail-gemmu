@@ -12,19 +12,19 @@ protocol DetailGamesRepositoryProtocol {
 
 }
 public final class DetailGamesRepository: NSObject {
-  typealias GamesInstance = (DetailDataSourceProtocol,LocaleDataSourceProtocol) -> DetailGamesRepository
-  
+  typealias GamesInstance = (DetailDataSourceProtocol, LocaleDataSourceProtocol) -> DetailGamesRepository
+
   fileprivate let remote: DetailDataSourceProtocol
   fileprivate let local: LocaleDataSourceProtocol
-  private init( remote: DetailDataSourceProtocol,local: LocaleDataSourceProtocol) {
+  private init( remote: DetailDataSourceProtocol, local: LocaleDataSourceProtocol) {
     self.remote = remote
     self.local = local
   }
-  
-  static let sharedInstance: GamesInstance = {remoteRepo,localRepo in
-    return DetailGamesRepository(remote: remoteRepo,local: localRepo)
+
+  static let sharedInstance: GamesInstance = {remoteRepo, localRepo in
+    return DetailGamesRepository(remote: remoteRepo, local: localRepo)
   }
-  
+
 }
 extension DetailGamesRepository: DetailGamesRepositoryProtocol {
   func getDetailGame(for id: Int) -> AnyPublisher<GameDetailEntity, Error> {

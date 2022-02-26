@@ -39,7 +39,7 @@ public struct GameDetailResponse: Codable {
   let developers, publishers: [Developer]
   let esrbRating: EsrbRating
   let descriptionRaw: String
-  
+
   public enum CodingKeys: String, CodingKey {
     case id, slug, name
     case nameOriginal = "name_original"

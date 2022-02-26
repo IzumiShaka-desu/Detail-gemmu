@@ -10,7 +10,7 @@ import Combine
 import Favorite
 
 public protocol DetailGameUseCase {
-  
+
   func getDetailGame(for id: Int) -> AnyPublisher<GameDetailEntity, Error>
   func addOrDeleteFavorite(for game: GameDetailEntity, isFavorited: Bool)
   func isGameFavorited(by id: Int) -> AnyPublisher<Bool, Error>
@@ -20,7 +20,7 @@ public class DetailGameInteractor: DetailGameUseCase {
  public func isGameFavorited(by id: Int) -> AnyPublisher<Bool, Error> {
     return repository.isGameFavorited(for: id)
   }
-  
+
  public func addOrDeleteFavorite(for game: GameDetailEntity, isFavorited: Bool) {
     let favoriteGame = FavoriteGame()
     favoriteGame.id = game.id
@@ -35,15 +35,15 @@ public class DetailGameInteractor: DetailGameUseCase {
         isFavorited: isFavorited
       )
   }
-  
+
   private let repository: DetailGamesRepositoryProtocol
-  
+
  public required init(repository: DetailGamesRepositoryProtocol) {
     self.repository = repository
   }
-  
+
  public func getDetailGame(for id: Int) -> AnyPublisher<GameDetailEntity, Error> {
     return repository.getDetailGame(for: id)
   }
-  
+
 }

@@ -9,11 +9,11 @@ import Combine
 import RealmSwift
 
 public class DetailGamePresenter: ObservableObject {
-  
+
   private var cancellables: Set<AnyCancellable> = []
-  
+
   private let usecase: DetailGameUseCase
-  
+
   @Published var gameDetail: GameDetailEntity?
   @Published var errorMessage: String = ""
   @Published var isLoading: Bool = true
@@ -23,11 +23,11 @@ public class DetailGamePresenter: ObservableObject {
   @Published var popUpMessage: String = ""
   var id: Int = -1
   var next: String?
-  
+
  public init(usecase: DetailGameUseCase) {
     self.usecase = usecase
   }
-  
+
   func loadDetail(for id: Int) {
     if self.id != id {
       isLoading = true
@@ -46,12 +46,12 @@ public class DetailGamePresenter: ObservableObject {
           }
         }, receiveValue: { result in
           self.gameDetail=result
-          
+
         })
         .store(in: &cancellables)
       self.id = id
     }
-    
+
   }
   func checkIsFavorited() {
     if  id != -1 {
@@ -69,12 +69,12 @@ public class DetailGamePresenter: ObservableObject {
         })
         .store(in: &cancellables)
     }
-    
+
   }
-  
+
   func changeStatusFavorited() {
     if let gameDetail = self.gameDetail {
-      
+
       usecase.addOrDeleteFavorite(
         for: gameDetail,
            isFavorited: isFavorited
@@ -82,6 +82,6 @@ public class DetailGamePresenter: ObservableObject {
       self.checkIsFavorited()
       isShowingPopUp=true
     }
-    
+
   }
 }

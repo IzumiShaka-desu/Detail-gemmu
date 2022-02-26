@@ -14,21 +14,21 @@ public struct DetailGameView: View {
  public init(gameId: Int, presenter: DetailGamePresenter) {
     self.idGame = gameId
     self.presenter = presenter
-    
+
     UITabBar.appearance().backgroundColor = UIColor.flatDarkBackground
     UINavigationBar.appearance().backgroundColor = UIColor.flatWhiteBackground
     UINavigationBar.appearance().barTintColor = UIColor.white
   }
-  
+
   var body: some View {
-    
+
     ZStack {
       Color.flatDarkBackground.ignoresSafeArea()
       VStack {
         if self.presenter.isLoading {
           ProgressView().padding(16)
         } else {
-          
+
           if let gameDetail=presenter.gameDetail {
             if  presenter.isError {
               Text(presenter.errorMessage)
@@ -44,18 +44,18 @@ public struct DetailGameView: View {
           } else {
             Text(" data not Loaded")
           }
-          
+
         }
-        
+
       }
-      
+
     }.onAppear {
       presenter.loadDetail(for: idGame)
       presenter.checkIsFavorited()
     }
-    
+
   }
-  
+
 }
 private struct PageBody: View {
   var gameDetail: GameDetailEntity
@@ -67,36 +67,36 @@ private struct PageBody: View {
         HStack {
           NetworkImage(url: URL(string: gameDetail.imageUrl)) { image in
             image.resizable()
-            
+
           } placeholder: {
             ProgressView()
-            
+
           } fallback: {
             Image(systemName: "photo")
-            
+
           }
           .frame(width: 150, height: 150)
           .clipped()
           .background(Color.white)
           .cornerRadius(10)
-          
+
           VStack(alignment: .leading) {
-            
+
             Text(gameDetail.name)
               .font(.title)
               .fixedSize(
                 horizontal: false,
                 vertical: true
               )
-            
+
             Text(gameDetail.publisher)
               .font(.subheadline)
-            
+
             HStack {
               Image(systemName: "star.fill")
               Text(String(format: "%.1f", gameDetail.rating))
                 .font(.subheadline)
-              
+
             }
             Button(action: {
               presenter.changeStatusFavorited()
@@ -105,17 +105,17 @@ private struct PageBody: View {
               if presenter.isFavorited {
                 Image(systemName: "star.square.fill")
                 Text("Favourited")
-                
+
               } else {
                 Image(systemName: "plus.circle")
                 Text("add to favourite")
-                
+
               }
             })
           }
-          
+
         }.padding(8)
-        
+
         Text("Release date")
           .font(.title3)
         Text(gameDetail.releaseDate)
@@ -142,17 +142,17 @@ private struct PageBody: View {
               bgColor: Color.pink
             )
           }
-          
+
         }
         Text("Description")
           .font(.title3)
-        
+
         ScrollView {
           Text(gameDetail.description)
             .font(.body)
             .padding(16)
         }
-        
+
       }
     }.popup(
       isPresented: $presenter.isShowingPopUp,
@@ -166,7 +166,7 @@ private struct PageBody: View {
       }
     )
   }
-  
+
 }
 struct Toast: View {
   var message: String
@@ -193,7 +193,7 @@ struct Toast: View {
     }.frame(height: 50)
       .cornerRadius(12)
       .padding()
-    
+
   }
 }
 struct DetailGameView_Previews: PreviewProvider {

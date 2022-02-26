@@ -5,7 +5,6 @@
 //  Created by Akashaka on 25/02/22.
 //
 
-
 import Foundation
 import Alamofire
 import Combine
@@ -38,6 +37,5 @@ extension DetailRemoteDataSource: DetailDataSourceProtocol {
       }
     }.eraseToAnyPublisher()
   }
-  
-  
+
 }
