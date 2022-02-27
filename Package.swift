@@ -16,7 +16,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
       .package(url: "https://github.com/IzumiShaka-desu/Common.git", .branch("main")),
-      .package(url: "https://github.com/IzumiShaka-desu/Favorite-gemmu.git", .branch("main")),
+      .package(url: "https://github.com/IzumiShaka-desu/Favorite.git", .branch("main")),
       .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.5.0"),
       .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", .branch("master"))
     ],
@@ -28,7 +28,7 @@ let package = Package(
             dependencies: [
               "Alamofire",
               "Common",
-              .product(name: "Favorite", package: "Favorite-gemmu"),
+              "Favorite",
               .product(name: "RealmSwift", package: "Realm")
             ]),
         .testTarget(
