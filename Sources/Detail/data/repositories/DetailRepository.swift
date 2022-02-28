@@ -5,6 +5,8 @@
 //  Created by Akashaka on 26/02/22.
 //
 import Favorite
+import Combine
+import Foundation
 protocol DetailGamesRepositoryProtocol {
   func getDetailGame(for id: Int) -> AnyPublisher<GameDetailEntity, Error>
   func addOrDeleteFavoriteGame(favoritedGame: FavoriteGame, isFavorited: Bool)
@@ -34,12 +36,12 @@ extension DetailGamesRepository: DetailGamesRepositoryProtocol {
       .eraseToAnyPublisher()
   }
   func isGameFavorited(for id: Int) -> AnyPublisher<Bool, Error> {
-    return self.locale
+    return self.local
       .isGameFavorited(for: id)
       .eraseToAnyPublisher()
   }
   func addOrDeleteFavoriteGame(favoritedGame: FavoriteGame, isFavorited: Bool) {
-    self.locale
+    self.local
       .addOrDeleteFavoriteGame(
         favoritedGame: favoritedGame,
         isFavorited: isFavorited
