@@ -9,6 +9,7 @@ import SwiftUI
 import NetworkImage
 import PopupView
 import UIKit
+import Common
 
 public struct DetailGameView: View {
   @ObservedObject var presenter: DetailGamePresenter
@@ -18,12 +19,11 @@ public struct DetailGameView: View {
     self.presenter = presenter
 
     UITabBar.appearance().backgroundColor = UIColor.flatDarkBackground
-    UINavigationBar.appearance().backgroundColor = UIColor.flatWhiteBackground
-    UINavigationBar.appearance().barTintColor = UIColor.white
+    UINavigationBar.appearance().backgroundColor = UIColor(Color.flatWhiteBackground)
+    UINavigationBar.appearance().barTintColor UIColor(Color.white)
   }
 
-  var body: some View {
-
+public  var body: some View {
     ZStack {
       Color.flatDarkBackground.ignoresSafeArea()
       VStack {
