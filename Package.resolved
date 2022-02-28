@@ -24,16 +24,16 @@
         "repositoryURL": "https://github.com/IzumiShaka-desu/Common.git",
         "state": {
           "branch": "main",
-          "revision": "5bfd0eda2ac2d859b545cd85ed7dcdb1f2506c89",
+          "revision": "446b4199c953f9d90dae46e7fe401dcdc28972bc",
           "version": null
         }
       },
       {
         "package": "Favorite",
-        "repositoryURL": "https://github.com/IzumiShaka-desu/Favorite-gemmu.git",
+        "repositoryURL": "https://github.com/IzumiShaka-desu/Favorite.git",
         "state": {
           "branch": "main",
-          "revision": "2393d44f8e6dcb1a70291be5a9391d11e26509ac",
+          "revision": "a5ed14af756efaba16cecc1fdb5c3da1381d0660",
           "version": null
         }
       },
@@ -56,21 +56,21 @@
         }
       },
       {
-        "package": "Realm",
-        "repositoryURL": "https://github.com/realm/realm-cocoa.git",
-        "state": {
-          "branch": "master",
-          "revision": "2a130ce1fc663be5d5aed62fca1534468679f1f0",
-          "version": null
-        }
-      },
-      {
         "package": "RealmDatabase",
         "repositoryURL": "https://github.com/realm/realm-core",
         "state": {
           "branch": null,
           "revision": "6b81f1a7a2d421f9e0b9e7f04e76bcf736a54409",
           "version": "11.9.0"
+        }
+      },
+      {
+        "package": "Realm",
+        "repositoryURL": "https://github.com/realm/realm-swift",
+        "state": {
+          "branch": null,
+          "revision": "9dff9f2862240d521ad6ad599541269177ddb993",
+          "version": "10.22.0"
         }
       },
       {

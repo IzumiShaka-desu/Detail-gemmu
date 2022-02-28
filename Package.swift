@@ -17,8 +17,7 @@ let package = Package(
         // .package(url: /* package url */, from: "1.0.0"),
       .package(url: "https://github.com/IzumiShaka-desu/Common.git", .branch("main")),
       .package(url: "https://github.com/IzumiShaka-desu/Favorite.git", .branch("main")),
-      .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.5.0"),
-      .package(name: "Realm", url: "https://github.com/realm/realm-cocoa.git", .branch("master"))
+      
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -26,10 +25,8 @@ let package = Package(
         .target(
             name: "Detail",
             dependencies: [
-              "Alamofire",
               "Common",
               "Favorite",
-              .product(name: "RealmSwift", package: "Realm")
             ]),
         .testTarget(
             name: "DetailTests",
