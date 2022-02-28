@@ -18,9 +18,9 @@ public struct DetailGameView: View {
     self.idGame = gameId
     self.presenter = presenter
 
-    UITabBar.appearance().backgroundColor = UIColor.flatDarkBackground
+    UITabBar.appearance().backgroundColor = UIColor(Color.flatDarkBackground)
     UINavigationBar.appearance().backgroundColor = UIColor(Color.flatWhiteBackground)
-    UINavigationBar.appearance().barTintColor UIColor(Color.white)
+    UINavigationBar.appearance().barTintColor = UIColor(Color.white)
   }
 
 public  var body: some View {
@@ -198,12 +198,5 @@ struct Toast: View {
 
   }
 }
-struct DetailGameView_Previews: PreviewProvider {
-  init() {
-    Injectors.sharedInstance.inject()
-  }
-  static var previews: some View {
-    DetailGameView(gameId: 3498, presenter: Injectors.sharedInstance.detailGamePresenter)
-  }
-}
+
 #endif

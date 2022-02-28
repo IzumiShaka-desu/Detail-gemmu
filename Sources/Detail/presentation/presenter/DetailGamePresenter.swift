@@ -53,7 +53,7 @@ public class DetailGamePresenter: ObservableObject {
     }
 
   }
-  func checkIsFavorited() {
+ public func checkIsFavorited() {
     if  id != -1 {
       usecase.isGameFavorited(by: id)
         .receive(on: RunLoop.main)
@@ -72,7 +72,7 @@ public class DetailGamePresenter: ObservableObject {
 
   }
 
-  func changeStatusFavorited() {
+public  func changeStatusFavorited() {
     if let gameDetail = self.gameDetail {
 
       usecase.addOrDeleteFavorite(
