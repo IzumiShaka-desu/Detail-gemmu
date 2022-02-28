@@ -7,7 +7,7 @@
 import Favorite
 import Combine
 import Foundation
-protocol DetailGamesRepositoryProtocol {
+public protocol DetailGamesRepositoryProtocol {
   func getDetailGame(for id: Int) -> AnyPublisher<GameDetailEntity, Error>
   func addOrDeleteFavoriteGame(favoritedGame: FavoriteGame, isFavorited: Bool)
   func isGameFavorited(for id: Int) -> AnyPublisher<Bool, Error>
@@ -29,18 +29,18 @@ public final class DetailGamesRepository: NSObject {
 
 }
 extension DetailGamesRepository: DetailGamesRepositoryProtocol {
-  func getDetailGame(for id: Int) -> AnyPublisher<GameDetailEntity, Error> {
+ public func getDetailGame(for id: Int) -> AnyPublisher<GameDetailEntity, Error> {
     return self.remote
       .getDetailGame(for: id)
       .map({$0.toEntity()})
       .eraseToAnyPublisher()
   }
-  func isGameFavorited(for id: Int) -> AnyPublisher<Bool, Error> {
+ public func isGameFavorited(for id: Int) -> AnyPublisher<Bool, Error> {
     return self.local
       .isGameFavorited(for: id)
       .eraseToAnyPublisher()
   }
-  func addOrDeleteFavoriteGame(favoritedGame: FavoriteGame, isFavorited: Bool) {
+ public func addOrDeleteFavoriteGame(favoritedGame: FavoriteGame, isFavorited: Bool) {
     self.local
       .addOrDeleteFavoriteGame(
         favoritedGame: favoritedGame,
