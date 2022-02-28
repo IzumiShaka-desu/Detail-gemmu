@@ -17,7 +17,7 @@ public final class DetailRemoteDataSource: NSObject {
 
   private override init() { }
 
- public static let sharedInstance: RemoteDataSource =  RemoteDataSource()
+ public static let sharedInstance: DetailRemoteDataSource =  DetailRemoteDataSource()
 
 }
 extension DetailRemoteDataSource: DetailDataSourceProtocol {
