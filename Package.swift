@@ -16,8 +16,8 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
       .package(url: "https://github.com/IzumiShaka-desu/Common.git", .branch("main")),
-      .package(url: "https://github.com/IzumiShaka-desu/Favorite.git", .branch("main")),
-      
+      .package(url: "https://github.com/IzumiShaka-desu/Favorite.git", .branch("main"))
+
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -26,7 +26,7 @@ let package = Package(
             name: "Detail",
             dependencies: [
               "Common",
-              "Favorite",
+              "Favorite"
             ]),
         .testTarget(
             name: "DetailTests",

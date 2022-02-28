@@ -65,6 +65,7 @@ private struct PageBody: View {
   var body: some View {
     ZStack {
       Color.flatDarkBackground.ignoresSafeArea()
+      ScrollView {
       VStack {
         HStack {
           NetworkImage(url: URL(string: gameDetail.imageUrl)) { image in
@@ -149,7 +150,7 @@ private struct PageBody: View {
         Text("Description")
           .font(.title3)
 
-        ScrollView {
+        
           Text(gameDetail.description)
             .font(.body)
             .padding(16)
