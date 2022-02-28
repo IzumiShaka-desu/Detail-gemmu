@@ -4,9 +4,11 @@
 //
 //  Created by Akashaka on 11/02/22.
 //
+#if !os(macOS)
 import SwiftUI
 import NetworkImage
 import PopupView
+import UIKit
 
 public struct DetailGameView: View {
   @ObservedObject var presenter: DetailGamePresenter
@@ -204,3 +206,4 @@ struct DetailGameView_Previews: PreviewProvider {
     DetailGameView(gameId: 3498, presenter: Injectors.sharedInstance.detailGamePresenter)
   }
 }
+#endif
