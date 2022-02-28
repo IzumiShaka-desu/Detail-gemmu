@@ -23,7 +23,7 @@ public final class DetailGamesRepository: NSObject {
     self.local = local
   }
 
-  static let sharedInstance: GamesInstance = {remoteRepo, localRepo in
+  public static let sharedInstance: GamesInstance = {remoteRepo, localRepo in
     return DetailGamesRepository(remote: remoteRepo, local: localRepo)
   }
 
