@@ -20,7 +20,7 @@ public final class DetailRemoteDataSource: NSObject {
  public static let sharedInstance: DetailRemoteDataSource =  DetailRemoteDataSource()
 
 }
-public extension DetailRemoteDataSource: DetailDataSourceProtocol {
+ extension DetailRemoteDataSource: DetailDataSourceProtocol {
   public func getDetailGame(for id: Int) -> AnyPublisher<GameDetailResponse, Error> {
     return Future<GameDetailResponse, Error> { completion in
       if let url = API.buildUrl(endpoint: .games, param: "/\(id)") {
