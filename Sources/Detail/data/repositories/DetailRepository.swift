@@ -14,7 +14,7 @@ public protocol DetailGamesRepositoryProtocol {
 
 }
 public final class DetailGamesRepository: NSObject {
-  typealias GamesInstance = (DetailDataSourceProtocol, LocaleDataSourceProtocol) -> DetailGamesRepository
+  public typealias GamesInstance = (DetailDataSourceProtocol, LocaleDataSourceProtocol) -> DetailGamesRepository
 
   fileprivate let remote: DetailDataSourceProtocol
   fileprivate let local: LocaleDataSourceProtocol
