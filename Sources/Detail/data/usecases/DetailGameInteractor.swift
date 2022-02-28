@@ -38,7 +38,7 @@ public class DetailGameInteractor: DetailGameUseCase {
 
   private let repository: DetailGamesRepositoryProtocol
 
-  required init(repository: DetailGamesRepositoryProtocol) {
+  public init(repository: DetailGamesRepositoryProtocol) {
     self.repository = repository
   }
 
