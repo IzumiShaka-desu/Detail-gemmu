@@ -150,7 +150,6 @@ private struct PageBody: View {
         Text("Description")
           .font(.title3)
 
-        
           Text(gameDetail.description)
             .font(.body)
             .padding(16)
